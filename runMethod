@@ -1,0 +1,110 @@
+#include <iostream>
+#include <fstream>
+//# <string>
+using namespace std;
+
+
+//method that prompts user if they wish to run method inside program,
+//user can enter a any of the confirmation inputs listed in the string array
+//for loop runs through each element in array are checks if it matches user input
+//if true runs methods else false so it doesn't run method 
+bool runMethod(string method){
+    string answer;
+    string confirm[6] = {"yes", "y", "sure", "sounds good", "why not", "kay"};
+    //string method;
+    cout << "would you like to run " + method + "?\n: ";
+    cin >> answer;
+    for (int i=0; i < 6; i++){
+        if (answer == confirm[i])
+        {
+            cout << "Great! " + method + " will be starting shortly... \n\n";
+            return true;
+        } else if (i == 5)
+        {
+            //cout << "it made it to the end, which is: " << i << "\n\n";
+            return false;
+        }
+        else
+        {
+            //cout << "this the current answer that is being checked " + confirm[i] + "\n"; 
+            //cout << "the answer was " + answer << endl;
+            //cout << "this is the value of i = " << i << " \n";
+        }
+    }
+}
+
+//practice with concatenation in C++
+//prompts user to enter first name then last name
+//and concatenates both strings is with a space in between
+void concatenate(){
+    string firstName;
+    string lastName;
+    cout << "type your first name \n: ";
+    cin >> firstName;
+    cout << "type your last name \n: ";
+    cin >> lastName;
+    string fullName = firstName + " " + lastName;
+    cout << fullName;   
+
+}
+
+//gets length of string
+void length(){
+    cout << endl;
+    string txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    cout << "The length of the txt string is: " << txt.length();
+}
+
+//uses append to add Doe to end of John string
+void append(){
+    cout << endl;
+    string firstName = "John ";
+    string lastName = "Doe";
+    string fullName = firstName.append(lastName);
+    cout << fullName;
+}
+
+//practices try/catch usage
+//trys to run divide by zero
+//catches and outputs error caught
+void tryCatch(){
+    try {
+        // Code that might raise an exception
+        int divisor = 0;
+        if (divisor == 0) {
+            throw std::runtime_error("Divide by zero error");
+        }
+
+        int result = 10 / divisor;
+        std::cout << "Result: " << result << std::endl;
+    } catch (const std::exception& e) {
+        // Code to handle the exception
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+}
+
+//where the methods actually get run or not
+int main (){
+    if (runMethod("concatenate")){
+        concatenate();
+        cout << endl;
+    }
+    if (runMethod("append")){
+        append();
+        cout << endl;
+    }
+    if (runMethod("length")){
+        length();
+        cout << endl;
+    }
+    if (runMethod("tryCatch")){
+        tryCatch();
+        cout << endl;
+    }
+
+
+    
+    
+    
+    return 0;
+}
