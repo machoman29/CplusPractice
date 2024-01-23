@@ -19,7 +19,8 @@ bool runMethod(string method){
         {
             cout << "Great! " + method + " will be starting shortly... \n\n";
             return true;
-        } else if (i == 5)
+        } 
+        else if (i == 5)
         {
             //cout << "it made it to the end, which is: " << i << "\n\n";
             return false;
@@ -68,16 +69,19 @@ void append(){
 //trys to run divide by zero
 //catches and outputs error caught
 void tryCatch(){
-    try {
+    try 
+    {
         // Code that might raise an exception
         int divisor = 0;
         if (divisor == 0) {
             throw std::runtime_error("Divide by zero error");
-        }
+    }
 
         int result = 10 / divisor;
         std::cout << "Result: " << result << std::endl;
-    } catch (const std::exception& e) {
+    } 
+    catch (const std::exception& e) 
+    {
         // Code to handle the exception
         std::cerr << "Exception caught: " << e.what() << std::endl;
     }
@@ -102,9 +106,5 @@ int main (){
         cout << endl;
     }
 
-
-    
-    
-    
     return 0;
 }
